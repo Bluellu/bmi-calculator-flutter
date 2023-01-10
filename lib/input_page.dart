@@ -5,6 +5,7 @@ import 'icon_content.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
@@ -13,6 +14,13 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+
+  int _cardSelected = -1;
+
+  Color updateColor(int index) {
+    return (_cardSelected == index) ? activeCardColor: inactiveCardColor;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,18 +35,32 @@ class _InputPageState extends State<InputPage> {
               children: <Widget> [
                 Expanded(
                   flex: 1,
-                  child: ReusableCard(
-                      color: activeCardColor,
-                      child: IconContent(FontAwesomeIcons.mars,
-                          text: "MALE"
-                      ),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState( () {
+                        _cardSelected = (_cardSelected == 0) ? -1 : 0;
+                      });
+                    },
+                    child: ReusableCard(
+                        color: updateColor(0),
+                        child: IconContent(FontAwesomeIcons.mars,
+                            text: "MALE"
+                        ),
+                    ),
                   ),
                 ),
                 Expanded(flex: 1,
-                  child: ReusableCard(
-                    color: activeCardColor,
-                    child: IconContent(FontAwesomeIcons.venus,
-                          text: "FEMALE"
+                  child: GestureDetector(
+                    onTap: () {
+                      setState( () {
+                        _cardSelected = (_cardSelected == 1) ? -1 : 1;
+                      });
+                    },
+                    child: ReusableCard(
+                      color: updateColor(1),
+                      child: IconContent(FontAwesomeIcons.venus,
+                            text: "FEMALE"
+                      ),
                     ),
                   ),
                 ),
