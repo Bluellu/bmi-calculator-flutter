@@ -8,6 +8,12 @@ const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
+enum Gender {
+  None,
+  Male,
+  Female
+}
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -15,10 +21,10 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
 
-  int _cardSelected = -1;
+  Gender _cardSelected = Gender.None;
 
-  Color updateColor(int index) {
-    return (_cardSelected == index) ? activeCardColor: inactiveCardColor;
+  Color updateColor(Gender gender) {
+    return (_cardSelected == gender) ? activeCardColor: inactiveCardColor;
   }
 
   @override
@@ -38,11 +44,11 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState( () {
-                        _cardSelected = (_cardSelected == 0) ? -1 : 0;
+                        _cardSelected = (_cardSelected == Gender.Male) ? Gender.None : Gender.Male;
                       });
                     },
                     child: ReusableCard(
-                        color: updateColor(0),
+                        color: updateColor(Gender.Male),
                         child: IconContent(FontAwesomeIcons.mars,
                             text: "MALE"
                         ),
@@ -53,11 +59,11 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState( () {
-                        _cardSelected = (_cardSelected == 1) ? -1 : 1;
+                        _cardSelected = (_cardSelected == Gender.Female) ? Gender.None : Gender.Female;
                       });
                     },
                     child: ReusableCard(
-                      color: updateColor(1),
+                      color: updateColor(Gender.Female),
                       child: IconContent(FontAwesomeIcons.venus,
                             text: "FEMALE"
                       ),
