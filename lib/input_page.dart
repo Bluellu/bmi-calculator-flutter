@@ -27,6 +27,12 @@ class _InputPageState extends State<InputPage> {
     return (_cardSelected == gender) ? activeCardColor: inactiveCardColor;
   }
 
+  void genderSelection(Gender gender) {
+      setState( () {
+        _cardSelected = (_cardSelected == gender) ? Gender.None : gender;
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,32 +47,20 @@ class _InputPageState extends State<InputPage> {
               children: <Widget> [
                 Expanded(
                   flex: 1,
-                  child: GestureDetector(
-                    onTap: () {
-                      setState( () {
-                        _cardSelected = (_cardSelected == Gender.Male) ? Gender.None : Gender.Male;
-                      });
-                    },
-                    child: ReusableCard(
-                        color: updateColor(Gender.Male),
-                        child: IconContent(FontAwesomeIcons.mars,
-                            text: "MALE"
-                        ),
-                    ),
+                  child: ReusableCard(
+                    onTap: () {genderSelection(Gender.Male);},
+                    color: updateColor(Gender.Male),
+                      child: IconContent(FontAwesomeIcons.mars,
+                          text: "MALE"
+                      ),
                   ),
                 ),
                 Expanded(flex: 1,
-                  child: GestureDetector(
-                    onTap: () {
-                      setState( () {
-                        _cardSelected = (_cardSelected == Gender.Female) ? Gender.None : Gender.Female;
-                      });
-                    },
-                    child: ReusableCard(
-                      color: updateColor(Gender.Female),
-                      child: IconContent(FontAwesomeIcons.venus,
-                            text: "FEMALE"
-                      ),
+                  child: ReusableCard(
+                    onTap: () {genderSelection(Gender.Female);},
+                    color: updateColor(Gender.Female),
+                    child: IconContent(FontAwesomeIcons.venus,
+                          text: "FEMALE"
                     ),
                   ),
                 ),
