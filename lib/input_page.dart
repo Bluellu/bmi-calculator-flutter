@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
+import 'round_icon_button.dart';
 
 
 enum Gender {
@@ -19,6 +20,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender _cardSelected = Gender.None;
   int _height = kDefaultHeight;
+  int _weight = kDefaultWeight;
+  int _age = kDefaultAge;
 
   Color updateColor(Gender gender) {
     return (_cardSelected == gender) ? kActiveCardColor: kInactiveCardColor;
@@ -71,6 +74,7 @@ class _InputPageState extends State<InputPage> {
                 color: kActiveCardColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget> [
                     Text('HEIGHT', style: kLabelTextStyle,),
                     Row(
@@ -82,7 +86,6 @@ class _InputPageState extends State<InputPage> {
                         Text('cm', style: kLabelTextStyle,),
                       ],
                     ),
-                    SizedBox(height: 15),
                     SliderTheme(
                       data: SliderTheme.of(context).copyWith(
                         activeTrackColor: kSliderActiveColor,
@@ -118,7 +121,22 @@ class _InputPageState extends State<InputPage> {
               children: <Widget> [
                 Expanded(flex: 1,
                     child: ReusableCard(
-                          color: kActiveCardColor
+                      color: kActiveCardColor,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget> [
+                          Text("WEIGHT", style: kLabelTextStyle),
+                          Text(_weight.toString(), style: kNumberTextStyle,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              RoundIconButton(onPressed: null),
+                              RoundIconButton(onPressed: null),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                 ),
                 Expanded(flex: 1,

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 const int kMinHeight = 100;
 const int kMaxHeight = 300;
 const int kDefaultHeight = 200;
+const int kDefaultWeight = 60;
+const int kDefaultAge = 30;
 
 /* Style */
 // ReusableCard
@@ -15,6 +17,9 @@ const kSliderActiveColor = Colors.white;
 const kSliderInactiveColor = Color(0xFF8D8E98);
 const kThumbColor = Color(0xFFEB1555);
 const int kOverlayAlpha = 0x1f; // 12% opacity
+
+// Buttons
+const kDefaultButton = Color(0xFF4C4F5E);
 
 // Bottom container
 const kBottomContainerHeight = 80.0;
