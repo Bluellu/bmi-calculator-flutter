@@ -131,7 +131,7 @@ class _InputPageState extends State<InputPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              RoundIconButton(onPressed: null),
+                              RoundIconButton(onPressed: () {}),
                               RoundIconButton(onPressed: null),
                             ],
                           ),
