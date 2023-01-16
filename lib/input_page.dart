@@ -33,6 +33,12 @@ class _InputPageState extends State<InputPage> {
       });
   }
 
+  void changeWeight(int offset) {
+    setState( () {
+      _weight += offset;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,8 +137,14 @@ class _InputPageState extends State<InputPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              RoundIconButton(FontAwesomeIcons.minus, onPressed: () {}),
-                              RoundIconButton(FontAwesomeIcons.plus, onPressed: () {}),
+                              RoundIconButton(FontAwesomeIcons.minus,
+                                  onPressed: () {
+                                    changeWeight(-1);
+                              }),
+                              RoundIconButton(FontAwesomeIcons.plus,
+                                  onPressed: () {
+                                    changeWeight(1);
+                              }),
                             ],
                           ),
                         ],
