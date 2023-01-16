@@ -33,12 +33,6 @@ class _InputPageState extends State<InputPage> {
       });
   }
 
-  void changeWeight(int offset) {
-    setState( () {
-      _weight += offset;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,13 +132,13 @@ class _InputPageState extends State<InputPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               RoundIconButton(FontAwesomeIcons.minus,
-                                  onPressed: () {
-                                    changeWeight(-1);
-                              }),
+                                  onPressed: () {setState(() {
+                                    _weight --;
+                                  });}),
                               RoundIconButton(FontAwesomeIcons.plus,
-                                  onPressed: () {
-                                    changeWeight(1);
-                              }),
+                                  onPressed: () {setState(() {
+                                    _weight ++;
+                                  });}),
                             ],
                           ),
                         ],
@@ -152,9 +146,30 @@ class _InputPageState extends State<InputPage> {
                     ),
                 ),
                 Expanded(flex: 1,
-                    child: ReusableCard(
-                        color: kActiveCardColor
+                  child: ReusableCard(
+                    color: kActiveCardColor,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget> [
+                        Text("AGE", style: kLabelTextStyle),
+                        Text(_age.toString(), style: kNumberTextStyle,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            RoundIconButton(FontAwesomeIcons.minus,
+                                onPressed: () {setState(() {
+                                  _age --;
+                                });}),
+                            RoundIconButton(FontAwesomeIcons.plus,
+                                onPressed: () {setState(() {
+                                  _age ++;
+                                });}),
+                          ],
+                        ),
+                      ],
                     ),
+                  ),
                 ),
               ],
             ),
