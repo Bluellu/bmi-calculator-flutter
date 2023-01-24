@@ -32,9 +32,18 @@ const kLabelTextStyle = TextStyle(
 );
 
 const kNumberTextStyle = TextStyle(
-    fontSize: 50,
+    fontSize: 50.0,
     fontWeight: FontWeight.w900
 );
 
+const kCalculateBttnStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 25.0,
+    fontWeight: FontWeight.w900,
+);
 
-
+const kTitleTextStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 50.0,
+    fontWeight: FontWeight.bold,
+);

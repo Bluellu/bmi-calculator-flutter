@@ -177,16 +177,17 @@ class _InputPageState extends State<InputPage> {
           ),
           Container(
             child: TextButton(
-              child: Text('CALCULATE', style: kLabelTextStyle.copyWith(color: Colors.white),),
+              child: Text('CALCULATE', style: kCalculateBttnStyle),
               onPressed: () => {Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ResultsPage())
-              )}
+              )},
             ),
             color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: kBottomContainerHeight,
+            padding: EdgeInsets.only(bottom: 20.0)
           ),
         ],
       ),
