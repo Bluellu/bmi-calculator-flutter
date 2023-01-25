@@ -64,3 +64,9 @@ const kBMITextStyle = TextStyle(
 const kBodyTextStyle = TextStyle(
     fontSize: 22.0,
 );
+
+const Map<String, String> kInterpretations = {
+    'underweight' : 'You have a lower than normal body weight.',
+    'ideal' : 'Your body weight is perfect.',
+    'overweight' : 'You have a higher than normal body weight. Try to exercise more.'
+};
