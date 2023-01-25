@@ -5,6 +5,7 @@ import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
 import 'round_icon_button.dart';
+import 'widgets/bottom_button.dart';
 
 
 enum Gender {
@@ -175,25 +176,19 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            child: TextButton(
-              child: Text('CALCULATE', style: kCalculateBttnStyle),
-              onPressed: () => {Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ResultsPage())
-              )},
-            ),
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
-            padding: EdgeInsets.only(bottom: 20.0)
+          BottomButton(
+            onTap: () { Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ResultsPage()));},
+            buttonTitle: 'CALCULATE',
           ),
         ],
       ),
     );
   }
 }
+
+
 
 
 

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class ResultsPage extends StatelessWidget {
-  Map<int, String> labels = {
+  final Map<int, String> labels = {
     0: 'underweight',
     1: 'ideal',
     2: 'overweight'
   };
 
-  Map<int, String> interpretations = {
+  final Map<int, String> interpretations = {
     0: 'You have a lower than normal body weight.',
     1: 'Your body weight is perfect.',
     2: 'You hav a higher than normal body weight. Try to exercise more.'
